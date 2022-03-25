@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RemoteSearcher</string>
+    <string name="image_favorite">Image Favorite</string>
+    <string name="logo">Logo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
