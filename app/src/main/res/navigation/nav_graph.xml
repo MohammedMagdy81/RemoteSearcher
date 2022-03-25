@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mianFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/mianFragment"
@@ -15,7 +15,7 @@
             app:destination="@id/jobDetailsViewsFragment"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"
-            app:popUpTo="@id/mianFragment"
+            app:popUpTo="@id/jobDetailsViewsFragment"
             app:popUpToInclusive="true"
             />
     </fragment>
@@ -35,5 +35,14 @@
         <argument
             android:name="job"
             app:argType="com.example.remotesearcher.model.JobsItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.remotesearcher.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_mianFragment"
+            app:destination="@id/mianFragment" />
     </fragment>
 </navigation>
