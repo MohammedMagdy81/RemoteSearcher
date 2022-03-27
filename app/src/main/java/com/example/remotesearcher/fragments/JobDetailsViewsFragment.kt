@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import androidx.navigation.fragment.navArgs
 import com.example.remotesearcher.MainActivity
@@ -55,10 +56,28 @@ class JobDetailsViewsFragment : Fragment(R.layout.fragment_job_details_views) {
 
     private fun setUpWebView() {
         binding.webView?.apply {
+
             webViewClient= WebViewClient()
-            currentjob.url?.let {
-                loadUrl(it)
-            }
+            currentjob.url?.let { loadUrl(it) }
+
+        }
+
+        val setting = binding.webView.settings
+        setUpUrlClicking(setting)
+
+    }
+
+    private fun setUpUrlClicking(setting: WebSettings) {
+        setting.apply {
+            javaScriptEnabled=true
+            setAppCacheEnabled(true)
+            cacheMode=WebSettings.LOAD_DEFAULT
+            setSupportZoom(false)
+            builtInZoomControls= false
+            displayZoomControls=false
+            textZoom=100
+            blockNetworkImage=false
+            loadsImagesAutomatically=true
         }
     }
 

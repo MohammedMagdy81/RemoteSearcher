@@ -20,13 +20,15 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
         android:src="@drawable/ic_favorite"
         android:tintMode="@color/white"
-        android:contentDescription="@string/image_favorite"
-        />
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/image_favorite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

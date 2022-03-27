@@ -52,7 +52,6 @@ class RemoteJobAdapter :RecyclerView.Adapter<RemoteJobAdapter.RemoteJoViewHolder
         }.setOnClickListener { view->
             val direction= MianFragmentDirections.actionMianFragmentToJobDetailsViewsFragment(currentJob)
             view.findNavController().navigate(direction)
-
         }
     }
 

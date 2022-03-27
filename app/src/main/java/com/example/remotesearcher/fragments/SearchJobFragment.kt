@@ -1,14 +1,18 @@
 package com.example.remotesearcher.fragments
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.remotesearcher.MainActivity
 import com.example.remotesearcher.R
+import com.example.remotesearcher.Utils
 import com.example.remotesearcher.adapter.RemoteJobAdapter
 import com.example.remotesearcher.databinding.FragmentSearchJobBinding
 import com.example.remotesearcher.model.JobsItem
@@ -35,11 +39,18 @@ class SearchJobFragment : Fragment(R.layout.fragment_search_job) {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel = (activity as MainActivity).remoteViewModel
-        searchJob()
-        setUpRecyclerView()
+
+        if (Utils.checkInternetConnection(requireContext())){
+            searchJob()
+            setUpRecyclerView()
+        }else{
+            Toast.makeText(requireContext(), "no internet connection", Toast.LENGTH_LONG).show()
+        }
 
     }
 
